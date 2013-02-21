@@ -1,0 +1,8 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    saz/sudo (2.2.0)
+
+DEPENDENCIES
+  saz/sudo (>= 0)
+

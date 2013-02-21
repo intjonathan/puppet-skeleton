@@ -1,0 +1,17 @@
+Roles are a collection of profile inclusions that build up all the services
+required for a particular node to perform its duties. They are the highest level
+of abstraction, describing a machine's role in terms appropriate for its
+business role. Classes at this level should contain minimal references to any
+specific technology or service, and should map 1:1 against an individual node.
+
+You should not have a memcached role, for example - a CacheServer role would be
+better, and it could call a memcached or AppCache profile which selected the
+memcached module to install.
+
+Limiting roles to one per machine helps avoid class-already-defined errors in
+Puppet, and allows easy visibility into everything a particular machine is
+running. If you have a machine that runs lots of different services, it would be
+immediately apparant by the large number of applied profiles in its role manifest.
+
+Again, Roles should be entirely specified in terms native to the business and
+the particular machines that host services.

@@ -1,0 +1,9 @@
+.tmp/
+modules/
+.librarian/
+.vagrant
+manifests/vagrant-site.pp
+*.swp
+vendor/
+.bundle
+.DS_Store

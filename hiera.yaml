@@ -1,0 +1,21 @@
+:backends: 
+   - yaml
+
+:logger: console
+
+# top levels are searched first, so you could have more yaml files if you want
+# %{} are variables in scope at the time of the hiera() call
+:hierarchy: 
+    # layers of application variables per-env
+    - apps/%{application}/%{environment}
+    - apps/%{application}
+    # host-specific configuration
+    - hosts/%{fqdn}
+    # everything else
+    - common
+
+:yaml:
+   :datadir: /etc/puppet/environments/%{environment}/hieradata
+
+:puppet:
+   :datasource: data

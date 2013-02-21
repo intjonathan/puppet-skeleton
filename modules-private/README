@@ -1,0 +1,10 @@
+Modules that are not called 'role' or 'profile' should perform a technology-
+oriented task and have minimal dependencies on other modules. They should expose
+an API entirely sufficient to configure the technology in a puppet-friendly and
+portable way. They should also be built in such a way that other organizations
+with different infrastructures could benefit from them with minimal changes.
+
+They should receive all their configuration via parameters or well-documented
+facts. They should have no silently-discovered configuration other than osfamily,
+and conventions should be overridable by passing overridden default parameters
+or facts.

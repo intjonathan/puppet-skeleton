@@ -1,0 +1,18 @@
+Profiles are where to translate the business notion of a server role into a
+collection of technologies and configuration values that allow that machine to
+fill its role.
+
+Profiles should be the layer where you interact with Hiera or other
+configuration sources, call underlying community- and internally-created
+technology-specific modules, and assemble the components to run a service.
+Profiles should be independent, but you may create hierarchies using include if
+you have multiple services that are exceedingly similar.
+
+Modules they call should be portable and avoid dependencies on other modules -
+the profile for the application or service should orchestrate those
+dependencies. This way we can contain our external module dependencies to one
+layer.
+
+Profiles can be somewhat large, and contain lots of glue code to allow a module
+to work the context of a particular infrastructure. This is fine, as it allows
+the modules themselves to be as portable as possible.
