@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
-gem 'librarian-puppet', '=0.9.7'
-gem 'puppet'
+gem 'librarian-puppet'
+gem 'puppet', '~> 2.7'
 
 group :development do
   gem 'vagrant', '~> 1.0'
