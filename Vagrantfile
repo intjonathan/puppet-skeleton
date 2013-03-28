@@ -16,8 +16,8 @@ end
 Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   # You should find a box appropriate to your infrastructure.
-  config.vm.box     = "box-name-here"
-  config.vm.box_url = "box-path-here#{config.vm.box}.box"
+  config.vm.box     = "CentOS-6.3-x64"
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-63-x64.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   config.vm.boot_mode = :gui
@@ -25,17 +25,6 @@ Vagrant::Config.run do |config|
   #
   # Provisioning
   #
-
-  # Ensure that Hiera is configured (otherwise things tend to explode...)
-  config.vm.provision :puppet do |vagrant_config|
-    # We have templates outside modules, so add those in too
-    vagrant_config.module_path      = ['modules/', 'modules-private/']
-    vagrant_config.manifests_path   = 'manifests'
-    vagrant_config.options          = ['-e "class { profile::base: }"', '--env vagrant']
-    # You must specify the manifest file, but when using the -e 
-    # option as above, it is ignored
-    vagrant_config.manifest_file    = 'site.pp'
-  end
 
   # Apply our manifests
   config.vm.provision :puppet do |run_puppet|
@@ -46,7 +35,6 @@ Vagrant::Config.run do |config|
     # separate site manifest for Vagrant
     run_puppet.manifest_file    = "vagrant-site.pp"
   end
-
 
   #
   # Targets

@@ -13,6 +13,9 @@ the profile for the application or service should orchestrate those
 dependencies. This way we can contain our external module dependencies to one
 layer.
 
+They should not declare resources directly, rather they should rely on tech 
+modules, even small ones, to accomplish their work.
+
 Profiles can be somewhat large, and contain lots of glue code to allow a module
 to work the context of a particular infrastructure. This is fine, as it allows
 the modules themselves to be as portable as possible.

@@ -7,8 +7,9 @@
 # %{} are variables in scope at the time of the hiera() call
 :hierarchy: 
     # layers of application variables per-env
-    - apps/%{application}/%{environment}
+    - apps/%{application}/%{app_environment}
     - apps/%{application}
+    - environments/%{environment}
     # host-specific configuration
     - hosts/%{fqdn}
     # everything else
